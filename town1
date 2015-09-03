@@ -1,0 +1,20 @@
+#!/usr/bin/env python3
+import classes as cl
+import colors as c
+print("Welcome to The Pines!")
+def hub():#The prompt where you
+    print(c.clear)
+    foo=input("Would you like to go to the Shop(1)? Or the Field(2)? >>>")    
+    if foo=='1':
+        store()
+    elif foo=='2':
+        store
+    else:
+        print('sorry, that is not an option')
+        hub()
+
+def store():#Where you can buy class upgrades
+    pass
+
+def field():#Where you go out and fight mobs
+    pass

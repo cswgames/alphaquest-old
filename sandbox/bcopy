@@ -1,0 +1,60 @@
+#!/usr/bin/python3
+import math
+import random
+import colors as c
+#This is a copy of my original 'battle'(first edit) program in the account 'jaja'
+#The code has been edited so it is more compatable to AQ.
+def foeattack():
+    print("Your foe strikes you!")
+    Player.hp=Player.hp-10
+
+def foeheal():
+    if Foe.heals<1:
+        print("Your foe is out of heals, so he attacked instead!")
+        Player.hp=Player.hp-10
+    else:
+        print("Your foe Heals")
+        Foe.hp=Foe.hp+35
+        Foe.heals=Foe.heals-1
+class Char():
+    hp=None
+    heals=None
+class Player(Char):
+    hp=100
+    heals=3
+class Foe(Char):
+    hp=80
+    heals=3
+def ai():
+    listy=[foeheal,foeattack]
+    move=random.choice(listy)
+    if move==foeheal:
+        foeheal()
+    elif move==foeattack:
+        foeattack()
+    else:
+        input("Error, restart your program")
+
+while True:
+    if Player.hp < 1:
+        print("You lost!")
+        break
+    elif Foe.hp < 1:
+        print("You win!")
+        break
+    else:
+        print(c.clear)
+        print("PLAYER HP ="+str(Player.hp)+"PLAYER HEALS ="+str(Player.heals))
+        print("FOE HP ="+str(Foe.hp)+"FOE HEALS ="+str(Foe.heals))
+        q=input("Attack(1) or Heal(2)? >>>").strip().lower()
+    if q=="1":
+        print("You attack your foe!")
+        Foe.hp=int(Foe.hp)-10
+    elif q=="2" and Player.heals<1:
+        print("You are out of heals, you attack instead.")
+        Foe.hp=int(Foe.hp)-10
+    elif q=="2":
+        print("You decide to stay back and heal.")
+        Player.hp=Player.hp+35
+        Player.heals=Player.heals-1
+    ai()

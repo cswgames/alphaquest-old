@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+import colors as c
+def namein():
+    name=input(c.yellow+'What is your name?'+c.reset+">>>"+c.violet).strip().title() 
+    nameout()
+def titlee():
+    print(c.clear)
+    input(c.yellow+'''                   Hello! And welcome to''')
+    input(c.red+'''
+     \_\_\_\_\_  \_          \_\_\_\_\_  \_      \_  \_\_\_\_\_
+      \_      \_  \_          \_      \_  \_      \_  \_      \_
+       \_\_\_\_\_  \_          \_\_\_\_\_  \_\_\_\_\_  \_\_\_\_\_
+        \_      \_  \_          \_          \_      \_  \_      \_
+         \_      \_  \_          \_          \_      \_  \_      \_
+          \_      \_  \_\_\_\_\_  \_          \_      \_  \_      \_
+    
+            \_\_\_\_\_  \_      \_  \_\_\_\_\_  \_\_\_\_\_  \_\_\_\_\_
+             \_      \_  \_      \_  \_          \_              \_
+              \_      \_  \_      \_  \_\_\_      \_\_\_\_\_      \_
+               \_      \_  \_      \_  \_                  \_      \_
+                \_      \_  \_      \_  \_                  \_      \_
+                 \_\_\_\_\_  \_\_\_\_\_  \_\_\_\_\_  \_\_\_\_\_      \_'''+c.reset)
+    nameout()
+def nameout():
+    name=input(c.yellow+'What is your name?'+c.reset+">>>"+c.violet).strip().title()
+    yn=input(c.yellow+'Oh! So your name is '+c.violet+name+c.yellow+' right? (Y/N) '+c.reset+'>>>'+c.orange).strip().title()
+    if yn=='Y':
+        print('GAME START')
+        #loadlvl1funct
+    elif yn == 'N':
+        namein()
+    else:
+        input(c.yellow+"Sorry, I don't know what that means, answer Y for yes or N for no")
+        nameout()
+titlee()
